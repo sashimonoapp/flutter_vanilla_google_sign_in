@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html>
-<body>
-<h1>Auth redirect page</h1>
-<p>Google Sign In redirected you here.</p>
-  <p>You will be redirected to the application soon</p>
-<script>
+<head>
+  <script>
   function findUrlParameter(parameterName) {
   let result = null;
   const searchParams = new URLSearchParams(location.search);
@@ -24,9 +21,12 @@ function redirectToDesktop() {
       window.location.href = url;
   }, 100);
 }
-
-alert('redirect now!');
-redirectToDesktop();
 </script>
+</head>
+<body>
+<h1>Auth redirect page</h1>
+<p>Google Sign In redirected you here.</p>
+<p>You will be redirected to the application soon</p>
+<button onclick="alert('redirect now!');redirectToDesktop();"> </button>
 </body>
 </html>

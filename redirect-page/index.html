@@ -11,6 +11,16 @@
   return result;
 }
 
+function redirectUrl() {
+  const idToken = findUrlParameter("id_token");
+  const accessToken = findUrlParameter("access_token");
+  const appLinkScheme = "sashimonoapp";
+  const appLinkAuthority = "#"; // auth.myapp.com
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
+  
+  return appLinkUrl;
+}
+
 function redirectToDesktop() {
   const idToken = findUrlParameter("id_token");
   const accessToken = findUrlParameter("access_token");
@@ -27,6 +37,6 @@ function redirectToDesktop() {
 <h1>Auth redirect page</h1>
 <p>Google Sign In redirected you here.</p>
 <p>You will be redirected to the application soon</p>
-<button onclick="alert('redirect now!');redirectToDesktop();"> BACK TO SM</button>
+<button onclick="alert('redirect now!\n' + redirectUrl());redirectToDesktop();"> BACK TO SM</button>
 </body>
 </html>

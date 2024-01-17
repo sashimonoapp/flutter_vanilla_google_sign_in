@@ -14,8 +14,8 @@
 function redirectToDesktop() {
   const idToken = findUrlParameter("id_token");
   const accessToken = findUrlParameter("access_token");
-  const appLinkScheme = "myapp-scheme";
-  const appLinkAuthority = "auth.myapp.com";
+  const appLinkScheme = "sashimonoapp";
+  const appLinkAuthority = "#"; // auth.myapp.com
   const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
   setTimeout(() => {
       window.location.href = url;

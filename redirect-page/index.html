@@ -42,13 +42,15 @@ redirectToDesktop();
 </head>
 <body>
 
-  <h1>Auth redirect page</h1>
+<h1>Auth redirect page</h1>
 
 <p>Google Sign In redirected you here.</p>
 <p>You will be redirected to the application soon</p>
+  <p>
   Current URL: <script>document.write('url: ' + window.location.href);</script><br><br><br>
   Redirect URL: <script>document.write('url: ' + redirectUrl());</script><br><br><br>
-<br>
+  <br>
+  </p>
   <hr>
 <a id="myLink" title="Click to do something"
  href="#" onclick="window.location.href(redirectUrl());return false;">BACK TO SM</a>

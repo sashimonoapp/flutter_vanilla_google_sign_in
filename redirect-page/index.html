@@ -35,15 +35,16 @@ function redirectToDesktop() {
       window.location.href = url;
   }, 100);
 }
+
+redirectToDesktop();
+    
 </script>
 </head>
 <body>
-<h1>Auth redirect page</h1>
+
+  <h1>Auth redirect page</h1>
 <p>Google Sign In redirected you here.</p>
 <p>You will be redirected to the application soon</p>
 
-<button onclick="redirectToDesktop();">BACK TO SM</button>
-<a href="javascript:window.redirect(${redir})"> BACK TO SM LINK [<script>${redir}</script>]</a>
-  
 </body>
 </html>

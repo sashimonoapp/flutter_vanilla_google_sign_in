@@ -2,6 +2,9 @@
 <html>
 <head>
   <script>
+
+  redir = '';
+    
   function findUrlParameter(parameterName) {
   let result = null;
   const searchParams = new URLSearchParams(location.search);
@@ -18,6 +21,7 @@ function redirectUrl() {
   const appLinkAuthority = "#"; // auth.myapp.com
   const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
   console.log(appLinkUrl);
+  redir = appLinkUrl;
   return appLinkUrl;
 }
 

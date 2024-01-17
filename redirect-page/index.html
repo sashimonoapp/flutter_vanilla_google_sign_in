@@ -17,7 +17,7 @@ function redirectUrl() {
   const appLinkScheme = "sashimonoapp";
   const appLinkAuthority = "#"; // auth.myapp.com
   const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
-  
+  console.log(appLinkUrl);
   return appLinkUrl;
 }
 
@@ -37,6 +37,7 @@ function redirectToDesktop() {
 <h1>Auth redirect page</h1>
 <p>Google Sign In redirected you here.</p>
 <p>You will be redirected to the application soon</p>
+
 <button onclick="alert('redirect now!\n' + redirectUrl());redirectToDesktop();"> BACK TO SM</button>
 </body>
 </html>

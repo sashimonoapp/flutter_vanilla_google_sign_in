@@ -6,13 +6,17 @@
   redir = '';
     
   function findUrlParameter(parameterName) {
+  console.log('findUrlParameter//parameterName: '+parameterName);
   let result = null;
   let url = window.location.href;
+  console.log('findUrlParameter//url: ' + url);
   newurl = url.replace('#', '&');
-  console.log('findUrlParameter//url: ' + newurl);
+  console.log('findUrlParameter//newurl: ' + newurl);
   const searchParams = new URLSearchParams(newurl);
   if (searchParams.has(parameterName)) {
     result = searchParams.get(parameterName);
+    console.log('findUrlParameter//result: ' + result);
+
   }
   return result;
 }

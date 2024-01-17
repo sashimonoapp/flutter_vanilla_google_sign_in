@@ -8,7 +8,7 @@
   function findUrlParameter(parameterName) {
   let result = null;
   let url = window.location.href;
-  newurl = url.replace('#', '?');
+  newurl = url.replace('#', '&');
   console.log('findUrlParameter//url: ' + newurl);
   const searchParams = new URLSearchParams(newurl);
   if (searchParams.has(parameterName)) {

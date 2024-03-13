@@ -24,9 +24,18 @@
 function redirectUrl() {
   const idToken = findUrlParameter("id_token");
   const accessToken = findUrlParameter("access_token");
+  const code = findUrlParameter("code");
   const appLinkScheme = "sashimonoapp";
   const appLinkAuthority = "#"; // auth.myapp.com
-  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
+  if (code != '') {
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/sf-auth?code=${code}`;
+  console.log('sf: ' + appLinkUrl);
+  }
+  if (idToken != '') {
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/sf-auth?code=${code}`;
+  console.log('ggle: ' + appLinkUrl);
+  }
+  //const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
   console.log(appLinkUrl);
   redir = appLinkUrl;
   return appLinkUrl;

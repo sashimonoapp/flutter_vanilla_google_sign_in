@@ -22,14 +22,16 @@
 
 function redirectUrl() {
   const idToken = findUrlParameter("id_token");
-  console.log('idToken: ' + idToken);
+  console.log(`idToken: ` + idToken);
   const accessToken = findUrlParameter("access_token");
-  console.log('accessToken: ' + accessToken);
+  console.log(`accessToken: ` + accessToken);
   const code = findUrlParameter("code");
-  console.log('code: ' + code);
+  console.log(`code: ` + code);
 
   const appLinkScheme = "sashimonoapp";
   const appLinkAuthority = "#"; // auth.myapp.com
+
+  appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/error`
   if (code != null) {
   const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/sf-auth?code=${code}`;
   console.log('sf: ' + appLinkUrl);

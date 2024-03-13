@@ -1,1 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
 
+  redir = '';
+    
+  function findUrlParameter(parameterName) {
+  console.log('findUrlParameter//parameterName: '+parameterName);
+  let result = null;
+  let url = window.location.href;
+  console.log('findUrlParameter//url: ' + url);
+  newurl = url.replace('#', '&');
+  console.log('findUrlParameter//newurl: ' + newurl);
+  const searchParams = new URLSearchParams(newurl);
+  if (searchParams.has(parameterName)) {
+    result = searchParams.get(parameterName);
+  }
+  console.log('findUrlParameter//result: ' + result);
+  return result;
+}
+
+function redirectUrl() {
+  const idToken = findUrlParameter("id_token");
+  console.log(`idToken: ` + idToken);
+  const accessToken = findUrlParameter("access_token");
+  console.log(`accessToken: ` + accessToken);
+  const code = findUrlParameter("code");
+  console.log(`code: ` + code);
+
+  const appLinkScheme = "sashimonoapp";
+  const appLinkAuthority = "#"; // auth.myapp.com
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/ggle-auth?id_token=${idToken}&access_token=${accessToken}`;
+  console.log(appLinkUrl);
+  redir = appLinkUrl;
+  return appLinkUrl;
+}
+
+function redirectToDesktop() {
+  const idToken = findUrlParameter("id_token");
+  const accessToken = findUrlParameter("access_token");
+  const code = findUrlParameter("code");
+  const appLinkScheme = "sashimonoapp";
+  const appLinkAuthority = "#"; // auth.myapp.com
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/ggle-auth?id_token=${idToken}&access_token=${accessToken}`;
+  setTimeout(() => {
+      window.location.href = appLinkUrl;
+  }, 100);
+}
+
+redirectToDesktop();
+    
+</script>
+</head>
+<body>
+
+<h1>Auth redirect page</h1>
+
+<p>Google Sign In redirected you here.</p>
+<p>You will be redirected to the application soon</p>
+  <p>
+  Current URL: <script>document.write('url: ' + window.location.href);</script><br><br><br>
+  Redirect URL: <script>document.write('url: ' + redirectUrl());</script><br><br><br>
+  <br>
+  </p>
+  <hr>
+<a id="myLink" title="Click to do something"
+ href="#" onclick="window.location.href(redirectUrl());return false;">BACK TO APP</a>
+  
+</body>
+</html>

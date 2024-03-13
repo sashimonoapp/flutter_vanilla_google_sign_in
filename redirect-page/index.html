@@ -11,7 +11,7 @@
   let url = window.location.href;
   console.log('findUrlParameter//url: ' + url);
   newurl = url.replace('#', '&');
-  newurl = url.replace('?', '&');
+  newurl = newurl.replace('?', '&');
   console.log('findUrlParameter//newurl: ' + newurl);
   const searchParams = new URLSearchParams(newurl);
   if (searchParams.has(parameterName)) {

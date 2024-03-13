@@ -11,12 +11,13 @@
   let url = window.location.href;
   console.log('findUrlParameter//url: ' + url);
   newurl = url.replace('#', '&');
+  newurl = url.replace('?', '&');
   console.log('findUrlParameter//newurl: ' + newurl);
   const searchParams = new URLSearchParams(newurl);
   if (searchParams.has(parameterName)) {
     result = searchParams.get(parameterName);
-    console.log('findUrlParameter//result: ' + result);
   }
+  console.log('findUrlParameter//result: ' + result);
   return result;
 }
 

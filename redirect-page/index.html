@@ -16,15 +16,18 @@
   if (searchParams.has(parameterName)) {
     result = searchParams.get(parameterName);
     console.log('findUrlParameter//result: ' + result);
-
   }
   return result;
 }
 
 function redirectUrl() {
   const idToken = findUrlParameter("id_token");
+  console.log('idToken: ' + idToken);
   const accessToken = findUrlParameter("access_token");
+  console.log('accessToken: ' + accessToken);
   const code = findUrlParameter("code");
+  console.log('code: ' + code);
+
   const appLinkScheme = "sashimonoapp";
   const appLinkAuthority = "#"; // auth.myapp.com
   if (code != '') {

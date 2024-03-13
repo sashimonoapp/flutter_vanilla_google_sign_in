@@ -30,17 +30,19 @@ function redirectUrl() {
 
   const appLinkScheme = "sashimonoapp";
   const appLinkAuthority = "#"; // auth.myapp.com
-
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}&code=${code}`;
+  /*
   appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/error`
   if (code != null) {
   const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/sf-auth?code=${code}`;
   console.log('sf: ' + appLinkUrl);
   }
   if (idToken != null) {
-  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?code=${code}`;
+  const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
   console.log('ggle: ' + appLinkUrl);
   }
   //const appLinkUrl = `${appLinkScheme}://${appLinkAuthority}/google-auth?id_token=${idToken}&access_token=${accessToken}`;
+  */
   console.log(appLinkUrl);
   redir = appLinkUrl;
   return appLinkUrl;
